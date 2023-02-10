@@ -82,21 +82,6 @@ def test_robot_movement(
         AssignedTacticPlayControlParams, params
     )
 
-    #Setup Tactic for drive in straight line with enemy robot from behind
-    params = AssignedTacticPlayControlParams()
-    params.assigned_tactics[0].move.CopyFrom(
-        test_drive_in_straight_line_with_moving_enemy_from_behind(
-            destination=robot_destination,
-            initial_position=robot_initial_position,
-            ball_collision_type=BallCollisionType.ALLOW,
-        )
-    )
-    simulated_test_runner.blue_full_system_proto_unix_io.send_proto(
-        AssignedTacticPlayControlParams, params
-    )
-
-    #Setup Tactic for 
-
     # Setup no tactics on the enemy side
     params = AssignedTacticPlayControlParams()
     simulated_test_runner.yellow_full_system_proto_unix_io.send_proto(
